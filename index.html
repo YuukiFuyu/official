@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- ทำให้เว็บแสดงผลเหมาะกับมือถือ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yuuki Fuyu</title>
+
+    <style>
+
+        /* =========================
+           BODY
+           ========================= */
+
+        body {
+            background-color: lightblue;
+
+            /* จัดข้อความให้อยู่ตรงกลาง */
+            text-align: center;
+
+            /* เปลี่ยนฟอนต์ */
+            font-family: Arial, sans-serif;
+
+            /* เอาระยะขอบเริ่มต้นของ browser ออก */
+            margin: 0;
+
+            /* เพิ่มพื้นที่รอบเนื้อหา */
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           PROFILE IMAGE
+           ========================= */
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+
+            /* ทำรูปสี่เหลี่ยมให้เป็นวงกลม */
+            border-radius: 50%;
+
+            /* ไม่ให้รูปถูกยืด */
+            object-fit: cover;
+        }
+
+
+        /* =========================
+           SOCIAL MEDIA LIST
+           ========================= */
+
+        ul {
+            /* เอาจุด • ออก */
+            list-style: none;
+
+            /* เอาระยะด้านในเริ่มต้นของ ul ออก */
+            padding: 0;
+
+            /* กำหนดความกว้างของกลุ่มปุ่ม */
+            max-width: 400px;
+
+            /* ทำให้กลุ่มอยู่ตรงกลาง */
+            margin: 20px auto;
+        }
+
+
+        /* =========================
+           SOCIAL MEDIA BUTTON
+           ========================= */
+
+        li {
+            /* เว้นระยะระหว่างปุ่ม */
+            margin: 10px 0;
+        }
+
+
+        /* ตัวลิงก์ */
+
+        li a {
+            /* ทำให้ลิงก์กลายเป็นกล่อง */
+            display: block;
+
+            /* พื้นที่ด้านในปุ่ม */
+            padding: 15px;
+
+            /* เส้นขอบ */
+            border: 1px solid black;
+
+            /* ทำมุมให้โค้ง */
+            border-radius: 10px;
+
+            /* เอาขีดเส้นใต้ของลิงก์ออก */
+            text-decoration: none;
+
+            /* สีตัวอักษร */
+            color: black;
+        }
+
+
+        /* =========================
+           HOVER
+           ========================= */
+
+        li a:hover {
+            /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
+            background-color: white;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- รูปโปรไฟล์ -->
+    <img
+        class="profile-image"
+        src="yuuki.png"
+        alt="Yuuki Fuyu"
+    >
+
+
+    <!-- ชื่อ -->
+    <h1>Yuuki Fuyu</h1>
+
+
+    <!-- คำอธิบายสั้น ๆ -->
+    <p>PNGTuber & Creator</p>
+
+    <p>Hello! I'm Yuuki Fuyu.</p>
+
+    <p>Welcome to my official page!</p>
+
+
+    <!-- Social Media -->
+
+    <h2>Social Media</h2>
+
+    <ul>
+
+        <li>
+            <a href="https://youtube.com/@yuuki._fuyu">Youtube</a>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://x.com/YuuFu_X">X</a>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.tiktok.com/@yuuki._fuyu">TikTok</a>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.instagram.com/yuufu_art.ig">Instagram</a>
+            </a>
+        </li>
+
+    </ul>
+
+
+</body>
+</html>
