@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <!-- ทำให้เว็บแสดงผลเหมาะกับมือถือ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Yuuki Fuyu</title>
+
 
     <style>
 
@@ -15,172 +19,970 @@
            BODY
            ========================= */
 
-body {
-    background-color: rgb(221, 221, 221);
+        body {
+            background-color: rgb(221, 221, 221);
 
-    /* จัดข้อความให้อยู่ตรงกลาง */
-    text-align: center;
+            text-align: center;
 
-    /* เปลี่ยนฟอนต์หลัก */
-    font-family: "Nunito", sans-serif;
+            font-family: "Nunito", sans-serif;
 
-    /* เอาระยะขอบเริ่มต้นของ browser ออก */
-    margin: 0;
+            margin: 0;
 
-    /* เพิ่มพื้นที่รอบเนื้อหา */
-    padding: 40px 20px;
-}
-
-/* ฟอนต์สำหรับหัวข้อ */
-h1, h2, h3 {
-    font-family: "Fredoka", sans-serif;
-    font-weight: 600;
-}
-
-/* ฟอนต์สำหรับปุ่มและลิงก์ */
-button, a {
-    font-family: "Nunito", sans-serif;
-    font-weight: 600;
-}
-       
+            padding: 40px 20px;
+        }
 
 
         /* =========================
-           PROFILE IMAGE
+           HEADINGS
            ========================= */
 
-        .profile-image {
-            width: 150px;
-            height: 150px;
+        h1,
+        h2,
+        h3 {
+            font-family: "Fredoka", sans-serif;
 
-            /* ทำรูปสี่เหลี่ยมให้เป็นวงกลม */
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           BUTTONS & LINKS
+           ========================= */
+
+        button,
+        a {
+            font-family: "Nunito", sans-serif;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           PROFILE
+           ========================= */
+
+        .profile-header {
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            max-width: 900px;
+
+            margin: 0 auto 70px;
+
+            text-align: left;
+        }
+
+
+        .profile-image {
+            width: 135px;
+
+            height: 135px;
+
             border-radius: 50%;
 
-            /* ไม่ให้รูปถูกยืด */
             object-fit: cover;
         }
 
 
-        /* =========================
-           SOCIAL MEDIA LIST
-           ========================= */
+        .profile-info {
+            text-align: left;
+        }
 
-        ul {
-            /* เอาจุด • ออก */
-            list-style: none;
 
-            /* เอาระยะด้านในเริ่มต้นของ ul ออก */
-            padding: 0;
+        .profile-info h1 {
+            margin-bottom: 8px;
+        }
 
-            /* กำหนดความกว้างของกลุ่มปุ่ม */
-            max-width: 400px;
 
-            /* ทำให้กลุ่มอยู่ตรงกลาง */
-            margin: 20px auto;
+        .profile-info p {
+            margin: 5px 0;
         }
 
 
         /* =========================
-           SOCIAL MEDIA BUTTON
+           MAIN LAYOUT
+           
+           LEFT  = SOCIAL LINKS
+           RIGHT = POST
            ========================= */
 
-        li {
-            /* เว้นระยะระหว่างปุ่ม */
-            margin: 10px 0;
+        .main-layout {
+            display: grid;
+
+            grid-template-columns: 1fr 500px;
+
+            align-items: center;
+
+            gap: 45px;
+
+            width: min(900px, 100%);
+
+            margin: 0 auto;
         }
 
 
-        /* ตัวลิงก์ */
+        /* =========================
+           SOCIAL LINKS
+           ========================= */
 
-        li a {
-            /* ทำให้ลิงก์กลายเป็นกล่อง */
+        .socials {
+            text-align: right;
+
+            opacity: 0;
+
+            transform: translateX(25px);
+
+            pointer-events: none;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                visibility 0.5s ease;
+        }
+
+
+        /* =========================
+           SHOW SOCIAL LINKS
+           ========================= */
+
+        .socials.show {
+            opacity: 1;
+
+            transform: translateX(0);
+
+            pointer-events: auto;
+
+            visibility: visible;
+        }
+
+
+        .socials h2 {
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           SOCIAL BUTTONS
+           ========================= */
+
+        .socials a {
             display: block;
 
-            /* พื้นที่ด้านในปุ่ม */
-            padding: 15px;
+            width: 260px;
 
-            /* เส้นขอบ */
-            border: 1px solid black;
+            box-sizing: border-box;
 
-            /* ทำมุมให้โค้ง */
+            padding: 10px 14px;
+
+            margin: 8px 0 8px auto;
+
+            border: 1px solid rgb(32, 30, 30);
+
             border-radius: 10px;
 
-            /* เอาขีดเส้นใต้ของลิงก์ออก */
             text-decoration: none;
 
-            /* สีตัวอักษร */
             color: black;
+
+            background-color: transparent;
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.15s ease;
+        }
+
+
+        .socials a:hover {
+            background-color: white;
+
+            transform: translateX(-3px);
         }
 
 
         /* =========================
-           HOVER
+           POST
            ========================= */
 
-        li a:hover {
-            /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
-            background-color: white;
+        .post {
+            width: 500px;
+
+            max-width: 100%;
+
+            margin: 0 auto;
+
+            text-align: left;
+
+            position: relative;
+
+            top: -30px;
+
+            transform: rotate(-8deg);
+
+            transform-origin: center center;
         }
 
 
+        /* =========================
+           POST IMAGE
+           ========================= */
+
+        .post-image {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            cursor: pointer;
+
+            user-select: none;
+        }
+
+
+        .post-image img {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+        }
+
+
+        /* =========================
+           DOUBLE CLICK HEART
+           ========================= */
+
+        .heart-pop {
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            font-size: 90px;
+
+            color: white;
+
+            transform:
+                translate(-50%, -50%)
+                scale(0);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .heart-pop.show {
+            animation: heartPop 0.7s ease;
+        }
+
+
+        @keyframes heartPop {
+
+            0% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(0);
+
+                opacity: 0;
+            }
+
+
+            25% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.2);
+
+                opacity: 1;
+            }
+
+
+            55% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1);
+
+                opacity: 1;
+            }
+
+
+            100% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.35);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           POST ACTIONS
+           ========================= */
+
+        .post-actions {
+            display: flex;
+
+            align-items: center;
+
+            width: 100%;
+
+            margin-top: 8px;
+        }
+
+
+        .post-actions-left {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        /* =========================
+           LIKE BUTTON
+           ========================= */
+
+        .like-button {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 38px;
+
+            height: 38px;
+
+            padding: 0;
+
+            border: none;
+
+            background: transparent;
+
+            color: black;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s ease;
+        }
+
+
+        .like-button:hover {
+            transform: scale(1.12);
+        }
+
+
+        .like-button.liked {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           NON-CLICKABLE ACTIONS
+           ========================= */
+
+        .post-action {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 38px;
+
+            height: 38px;
+
+            color: black;
+
+            user-select: none;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           SVG ICONS
+           ========================= */
+
+        .post-action svg,
+        .like-button svg,
+        .bookmark-icon svg {
+
+            width: 25px;
+
+            height: 25px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 2;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+        }
+
+
+        .like-button svg {
+            width: 27px;
+
+            height: 27px;
+        }
+
+
+        .bookmark-icon svg {
+            width: 26px;
+
+            height: 26px;
+        }
+
+
+        /* =========================
+           LIKED HEART
+           ========================= */
+
+        .like-button.liked svg {
+            fill: currentColor;
+        }
+
+
+        /* =========================
+           BOOKMARK
+           ========================= */
+
+        .bookmark-icon {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-left: auto;
+
+            width: 38px;
+
+            height: 38px;
+
+            color: black;
+
+            user-select: none;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 25px 15px;
+            }
+
+
+            .profile-header {
+                gap: 15px;
+
+                margin-bottom: 45px;
+            }
+
+
+            .profile-image {
+                width: 100px;
+
+                height: 100px;
+            }
+
+
+            .profile-info h1 {
+                font-size: 25px;
+            }
+
+
+            /* =====================
+               MOBILE LAYOUT
+               ===================== */
+
+            .main-layout {
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 30px;
+
+                width: 100%;
+            }
+
+
+            /* =====================
+               MOBILE POST
+               ===================== */
+
+            .post {
+                width: min(500px, 100%);
+
+                top: 0;
+
+                transform: rotate(0deg);
+
+                order: 1;
+            }
+
+
+            /* =====================
+               MOBILE SOCIAL LINKS
+               ===================== */
+
+            .socials {
+                width: min(500px, 100%);
+
+                text-align: center;
+
+                order: 2;
+
+                transform: translateY(15px);
+            }
+
+
+            .socials.show {
+                transform: translateY(0);
+            }
+
+
+            .socials a {
+                width: min(260px, 100%);
+
+                margin: 8px auto;
+            }
+
+
+            .socials a:hover {
+                transform: translateY(-2px);
+            }
+
+        }
+
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- รูปโปรไฟล์ -->
-    <img
-        class="profile-image"
-        src="yuuki.png"
-        alt="Yuuki Fuyu"
-    >
+
+    <!-- =========================
+         PROFILE
+         ========================= -->
+
+    <div class="profile-header">
+
+        <img
+            class="profile-image"
+            src="yuuki.png"
+            alt="Yuuki Fuyu"
+        >
 
 
-    <!-- ชื่อ -->
-    <h1>Yuuki Fuyu</h1>
+        <div class="profile-info">
+
+            <h1>Yuuki Fuyu</h1>
+
+            <p>PNGTuber & Creator</p>
+
+            <p>This is my official page</p>
+
+        </div>
+
+    </div>
 
 
-    <!-- คำอธิบายสั้น ๆ -->
-    <p>Welcome to my official page!</p>
-    
-    <p>i'm Yuuki Fuyu</p>
 
-    <p>PNGTuber & Creator</p>
+    <!-- =========================
+         MAIN LAYOUT
+         ========================= -->
 
-    <!-- Social Media -->
+    <main class="main-layout">
 
-    <h2>Social Media</h2>
 
-    <ul>
+        <!-- =========================
+             SOCIAL LINKS
+             ========================= -->
 
-        <li>
-            <a href="https://youtube.com/@yuuki._fuyu">Youtube</a>
+        <section
+            class="socials"
+            id="socials"
+        >
+
+            <h2>Social Links</h2>
+
+
+            <a
+                href="https://discord.gg/YkSz6Re8u5"
+            >
+                Discord
             </a>
-        </li>
 
-        <li>
-            <a href="https://x.com/YuuFu_X">X</a>
+
+            <a
+                href="https://youtube.com/@yuuki._fuyu"
+            >
+                YouTube
             </a>
-        </li>
 
-        <li>
-            <a href="https://www.tiktok.com/@yuuki._fuyu">TikTok</a>
+
+            <a
+                href="https://www.tiktok.com/@yuuki._fuyu"
+            >
+                TikTok
             </a>
-        </li>
 
-        <li>
-            <a href="https://www.instagram.com/yuufu_art.ig">Instagram</a>
+
+            <a
+                href="https://www.instagram.com/yuufu_art.ig"
+            >
+                Instagram
             </a>
-        </li>
 
-         <li>
-            <a href="https://discord.gg/YkSz6Re8u5">Discord</a>
+
+            <a
+                href="https://x.com/YuuFu_X"
+            >
+                X
             </a>
-        </li>
 
-    </ul>
+        </section>
 
+
+
+        <!-- =========================
+             POST
+             ========================= -->
+
+        <section class="post">
+
+
+            <!-- =====================
+                 POST IMAGE
+                 ===================== -->
+
+            <div
+                class="post-image"
+                id="postImage"
+            >
+
+                <img
+                    src="IMG_20261004_130208.png"
+                    alt="Yuuki's post"
+                >
+
+
+                <!-- Double-click heart -->
+
+                <span class="heart-pop">
+                    ♥
+                </span>
+
+            </div>
+
+
+
+            <!-- =====================
+                 POST ACTIONS
+                 ===================== -->
+
+            <div class="post-actions">
+
+
+                <div class="post-actions-left">
+
+
+                    <!-- =================
+                         LIKE
+                         ใช้งานจริง
+                         ================= -->
+
+                    <button
+                        type="button"
+                        class="like-button"
+                        id="likeButton"
+                        aria-label="Like"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="
+                                    M20.8 8.6
+                                    C20.8 5.8 18.6 4 16.2 4
+                                    C14.8 4 13.4 4.7 12.5 5.8
+                                    C11.6 4.7 10.2 4 8.8 4
+                                    C6.4 4 4.2 5.8 4.2 8.6
+                                    C4.2 12.5 8.2 15.2 12.5 19
+                                    C16.8 15.2 20.8 12.5 20.8 8.6
+                                    Z
+                                "
+                            ></path>
+
+                        </svg>
+
+                    </button>
+
+
+
+                    <!-- =================
+                         COMMENT
+                         ================= -->
+
+                    <span
+                        class="post-action"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="
+                                    M20 11.5
+                                    C20 15.1 16.4 18 12 18
+                                    C10.9 18 9.8 17.8 8.8 17.5
+                                    L5 20
+                                    L6.1 16.3
+                                    C4.8 15.1 4 13.4 4 11.5
+                                    C4 7.9 7.6 5 12 5
+                                    C16.4 5 20 7.9 20 11.5
+                                    Z
+                                "
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+
+
+                    <!-- =================
+                         REPOST
+                         ================= -->
+
+                    <span
+                        class="post-action"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M17 4 L21 8 L17 12"
+                            ></path>
+
+                            <path
+                                d="M3 8 H21"
+                            ></path>
+
+                            <path
+                                d="M7 20 L3 16 L7 12"
+                            ></path>
+
+                            <path
+                                d="M3 16 H21"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+
+
+                    <!-- =================
+                         SHARE
+                         ================= -->
+
+                    <span
+                        class="post-action"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M20 4 L10 14"
+                            ></path>
+
+                            <path
+                                d="M20 4 L14 20 L10 14 L4 10 Z"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================
+                     BOOKMARK
+                     ================= -->
+
+                <span
+                    class="bookmark-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="
+                                M6 4
+                                C6 3.4 6.4 3 7 3
+                                H17
+                                C17.6 3 18 3.4 18 4
+                                V21
+                                L12 17.5
+                                L6 21
+                                Z
+                            "
+                        ></path>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script>
+
+        const postImage =
+            document.getElementById("postImage");
+
+
+        const likeButton =
+            document.getElementById("likeButton");
+
+
+        const heartPop =
+            document.querySelector(".heart-pop");
+
+
+        const socials =
+            document.getElementById("socials");
+
+
+        let liked = false;
+
+
+
+        /* =========================
+           LIKE / UNLIKE
+           ========================= */
+
+        function toggleLike() {
+
+            liked = !liked;
+
+
+            likeButton.classList.toggle(
+                "liked",
+                liked
+            );
+
+
+            socials.classList.toggle(
+                "show",
+                liked
+            );
+
+        }
+
+
+
+        /* =========================
+           CLICK LIKE BUTTON
+           ========================= */
+
+        likeButton.addEventListener(
+            "click",
+            () => {
+
+                toggleLike();
+
+            }
+        );
+
+
+
+        /* =========================
+           DOUBLE CLICK POST
+           ========================= */
+
+        postImage.addEventListener(
+            "dblclick",
+            () => {
+
+                /*
+                 * ถ้ายังไม่ได้ Like
+                 * ให้ Like ก่อน
+                 */
+
+                if (!liked) {
+
+                    toggleLike();
+
+                }
+
+
+                /*
+                 * เล่นหัวใจตรงกลางโพสต์
+                 */
+
+                heartPop.classList.remove(
+                    "show"
+                );
+
+
+                /*
+                 * บังคับให้ animation
+                 * เริ่มใหม่
+                 */
+
+                void heartPop.offsetWidth;
+
+
+                heartPop.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+    </script>
 
 </body>
+
 </html>
