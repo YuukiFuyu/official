@@ -258,27 +258,19 @@
            ========================= */
 
         .heart-pop {
-            position: absolute;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 
-            left: 50%;
+    font-size: 90px;
+    color: #ff3040;
 
-            top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
 
-            font-size: 90px;
-
-            color: white;
-
-            transform:
-                translate(-50%, -50%)
-                scale(0);
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            text-shadow:
-                0 3px 10px rgba(0, 0, 0, 0.3);
-        }
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
 
 
         .heart-pop.show {
